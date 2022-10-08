@@ -1,0 +1,75 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0", 
+      "title": "Fast API Development",
+      "description": "My FAST API",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:3001/api",
+    "basePath": "/",
+    "schemes": ["http"],
+    "consumes": ["application/json"],
+    "produces": ["application/json"],
+    "paths": {
+      "/books": {
+        "get": {
+          "tags": ["Book"],
+          "summary": "Get all books in system",
+          "responses": {
+            "200": {
+              "description": "OK"
+            }
+          }
+        }
+      },
+      "/book":{
+        "post":{
+          "tags": ["Book"],
+          "summary": "create new book in system",
+          "parameters": [
+            {
+              "name": "user",
+              "in": "body",
+              "description": "author & title that we want to create",
+              "schema": {
+                "$ref": "#/definitions/Book"
+              }
+            }
+          ],
+          "produces": ["application/json"],
+          
+          "responses":{
+            "200":{
+              "description": "success save book",
+              "$ref": "#/definitions/Book"
+            },
+            "301":{
+             "description": "book already on database",
+             "$ref": "#/definitions/Book"
+            },
+            "400":{
+              "description": "error save book",
+              "$ref": "#/definitions/Book"
+            }
+          }
+        }
+      }
+    },
+    "definitions": {
+      "Book": {
+        "required": ["author","title"],
+        "properties": {
+          "author": {
+            "type":"string"
+          },
+          "title": {
+            "type": "string"
+          } 
+        }
+      }
+    }
+}
