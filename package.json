@@ -7,9 +7,11 @@
     "node": "16.17.1"
   },
   "scripts": {
-    "start":"node index.js",
+    "start": "serve -s build",
+    "build": "react-scripts build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js"
+    "dev": "nodemon index.js",
+    "heroku-postbuild": "npm run build"
   },
   "keywords": [
     "fast-development-api"
