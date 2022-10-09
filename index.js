@@ -20,34 +20,23 @@ const app = express();
 mongoose.connect(`mongodb+srv://${process.env.MONGOOSE_USER}:${process.env.MONGOOSE_PASS}@cluster0.7eh03if.mongodb.net/?retryWrites=true&w=majority`)
 .then(() => {
     console.log('connect to db server')
-
-    app.listen(process.env.SERVER_PORT || 8080, () =>{
-        console.log('server listening on port', process.env.PORT || 3000)
-    })
-    // test url
-
-    /**
-     * @swagger
-     * /:
-     *  get:
-     *      description: testing url
-     *      responses:
-     *          200:
-     *             description: Sucess
-     */
-    app.get('/',(req, res) => {
-        res.send(<h1>Hello Fast Api Apps</h1>)
-    }) 
-
-    app.use(bodyParser.json())
-    app.use('/api', auth)
-    app.use('/api', book)
-    app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerOptions))
 })
 .catch((error) => {
     console.log('can`t connect to db why beacuse : ', error)
 })
 
+app.get('/',(req, res) => {
+    res.send(<h1>Hello Fast Api Apps</h1>)
+}) 
+
+app.use(bodyParser.json())
+app.use('/api', auth)
+app.use('/api', book)
+app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerOptions))
+
+app.listen(process.env.SERVER_PORT || 8080, () =>{
+    console.log('server listening on port', process.env.PORT || 3000)
+})
 
 
 
