@@ -9,9 +9,9 @@
         "url": "https://opensource.org/licenses/MIT"
       }
     },
-    "host": "https://fast-dev-api.herokuapp.com/api",
+    "host": "fast-dev-api.herokuapp.com/api",
     "basePath": "/",
-    "schemes": ["http"],
+    "schemes": ["https"],
     "consumes": ["application/json"],
     "produces": ["application/json"],
     "paths": {
