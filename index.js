@@ -36,7 +36,7 @@ app.use('/api', auth)
 app.use('/api', book)
 app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerOptions))
 
-app.listen(process.env.SERVER_PORT || 8080, () => {
+app.listen(process.env.PORT || 8080, () => {
     console.log('server listening on port', process.env.PORT || 3000)
 })
 
