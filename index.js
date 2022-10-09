@@ -26,7 +26,9 @@ mongoose.connect(`mongodb+srv://${process.env.MONGOOSE_USER}:${process.env.MONGO
 })
 
 app.get('/',(req, res) => {
-    res.send(<h1>Hello Fast Api Apps</h1>)
+    res.status(200).json({
+        message: 'Welcome to Fast api',
+    })
 }) 
 
 app.use(bodyParser.json())
