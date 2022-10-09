@@ -22,7 +22,7 @@ mongoose.connect(`mongodb+srv://${process.env.MONGOOSE_USER}:${process.env.MONGO
     console.log('connect to db server')
 
     app.listen(process.env.SERVER_PORT || 8080, () =>{
-        console.log('server listening on port', process.env.SERVER_PORT || 8080)
+        console.log('server listening on port', process.env.PORT || 3000)
     })
     // test url
 
@@ -36,9 +36,7 @@ mongoose.connect(`mongodb+srv://${process.env.MONGOOSE_USER}:${process.env.MONGO
      *             description: Sucess
      */
     app.get('/',(req, res) => {
-        res.status(200).json({
-            message: 'done'
-        })
+        res.send(<h1>Hello Fast Api Apps</h1>)
     }) 
 
     app.use(bodyParser.json())
