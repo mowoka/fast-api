@@ -21,8 +21,8 @@ mongoose.connect(`mongodb+srv://${process.env.MONGOOSE_USER}:${process.env.MONGO
 .then(() => {
     console.log('connect to db server')
 
-    app.listen(process.env.SERVER_PORT, () =>{
-        console.log('server listening on port', process.env.SERVER_PORT)
+    app.listen(process.env.SERVER_PORT || 8080, () =>{
+        console.log('server listening on port', process.env.SERVER_PORT || 8080)
     })
     // test url
 
